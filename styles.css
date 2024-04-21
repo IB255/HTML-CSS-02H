@@ -11,8 +11,10 @@ html, body {
   border-bottom: 5px solid #80add6;
 }
 
+/*The header element is displayed as a flexbox container, with the 
+parent container simply being named "menu bar". */
 header {
-  display: flex;
+  display: flex; /* <-- Flex happens here. */
   justify-content: space-between;
   align-items: center;
   padding: 0px 5% 0px 2%;
@@ -36,7 +38,7 @@ header {
 .nav_links li a {
   font-family: "Anek Bangla", sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 20px;
   color: white;
   text-decoration: none;
 }
@@ -70,6 +72,7 @@ These hyperlinks will apply the hover pseudo-class only to each li that is NOT a
   justify-content: center;
   height: 30vh;
   border-bottom: 5px solid #80add6;
+  max-width: 100%;
 }
 
 #hero-content {
@@ -81,6 +84,7 @@ These hyperlinks will apply the hover pseudo-class only to each li that is NOT a
 
 .brandName {
   height: 600px;
+  max-width: 100;
 }
 
 
@@ -121,11 +125,12 @@ p.info {
   width: 95%;
   text-align: center;
   font-family: "Anek Bangla", sans-serif;
-  font-weight: 400;
+  font-weight: 200;
 }
 
-.dropdown-content p:first-child i {
-  font-weight: 200;
+/* first-child PsuedoClass used for dropdown content. */
+.dropdown-content div:first-child i {
+  font-weight: 600;
 
 }
 
@@ -162,7 +167,7 @@ p.info {
 }
 
 
-/* style text link */
+/* Descendant selector is used here for the dropdown container to allow for stylization of the link that was built into the dropdown container. */
 .dropdown-content .tl {
   color: #36f;
   text-decoration: none;
@@ -314,4 +319,52 @@ p.info {
 
 .dropdown-content .db3:hover {
   background: #d1d1d6;
+}
+
+
+/* Repositioning of the carousel container. */
+#carouselExample {
+  float: left;
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 50vw;
+  height: 50vh;
+  overflow: auto;
+}
+
+/*Use of a chained child selector to allow for resizing of the images within the carousel. */
+.carousel > .carousel-inner > .carousel-item > img{
+  width: 50vw;
+  height: 50vh;
+}
+
+#ccc {
+  float: right;
+  margin-top: 20px;
+  margin-right: 20px;
+  background-color: #80add6;
+  width: 1200px;
+  height: 657.5px;
+}
+
+/*Testing the first-child on the carousel content box. */
+#ccc h1:first-child {
+  text-align: center;
+}
+
+/*Testing the nth-child on the carousel content box. */
+#ccc li:nth-child(2) {
+  font-weight: 600;
+}
+
+/* Adjacent sibling selector for the carousel content box. */
+#ccc h1 + p.adjtest {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+/* Testing the General Sibling Selector for the carousel content box. */
+#ccc h1 ~ ul {
+  background-color: #073883;
+  color: #80add6;
 }
